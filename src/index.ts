@@ -5,7 +5,7 @@ const app = express();
 
 const apiPath = "/things";
 const thingsIKnow = ["Html", "Sass", "TypeScript", "StyledComponents", "CSS"];
-const error404 =
+const error404Message =
   "Cannot load your requested information. Try again in 5 minutes...";
 const port = 3000;
 
@@ -16,14 +16,15 @@ const server = app.listen(port, () => {
 
 app.use(morgan("dev"));
 
+const error404 = (req: Request, res: Response) => {
+  const { log, Console } = console;
+  log(error404);
+  res.status(404).json({
+    error: error404Message,
+  });
+};
 app.get(apiPath, (req, res, next) => {
   res.status(200).json({ thingsIKnow });
 });
 
-app.use((req: Request, res: Response) => {
-  const { log, Console } = console;
-  log(error404);
-  res.status(404).json({
-    error: error404,
-  });
-});
+app.use(error404);
