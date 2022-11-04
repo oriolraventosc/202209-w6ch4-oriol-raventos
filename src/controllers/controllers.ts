@@ -34,7 +34,7 @@ export const deleteThingById = (req: Request, res: Response) => {
     return;
   }
   things.slice(thing.id - 1, 1);
-  res.status(204).json({ thing });
+  res.status(204).json({ thingsIKnow });
 };
 
 export const createNewThing = (req: Request, res: Response) => {
