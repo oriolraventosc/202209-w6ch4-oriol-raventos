@@ -5,7 +5,7 @@ export const error404Message =
 
 export const error404 = (req: Request, res: Response) => {
   const { log } = console;
-  log(error404);
+  log("Endpoint not found!");
   res.status(404).json({
     error: error404Message,
   });
