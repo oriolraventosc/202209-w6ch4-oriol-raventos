@@ -1,4 +1,4 @@
-const thingsIKnow = {
+let thingsIKnow = {
   things: [
     { thing: "Html", id: 1 },
     { thing: "Sass", id: 2 },
