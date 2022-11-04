@@ -56,7 +56,7 @@ export const createNewThing = (req: Request, res: Response) => {
     id: things.length + 1,
   };
   if (thingToAdd.thing === `${{ thing: "undefined" }}`) {
-    log("Post request arrived!");
+    log("Post request failed!");
     res.status(400).json({ error: "Your thing is empty..." });
   }
   log("Post request arrived!");
